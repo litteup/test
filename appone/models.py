@@ -27,7 +27,7 @@ class Doctor(models.Model):
     people = models.ManyToManyField(People)
 
     def __str__(self):
-        return f'Dr {f_name} {self.l_name}.'
+        return f'Dr {self.f_name} {self.l_name}.'
 
 
 class Product(models.Model):
@@ -45,7 +45,7 @@ class Bio(models.Model):
         ('f', 'Female'),
     }
 
-    people = models.ForeignKey(People,on_delete=models.CASCADE) 
+    people = models.ForeignKey(People,on_delete=models.CASCADE)
     email = models.EmailField()
     date_of_birth = models.DateField()
     phone_number = models.CharField(max_length=20)
@@ -54,4 +54,4 @@ class Bio(models.Model):
 
 
     def __str__(self):
-        return f'Sex: {self.sex}, Date of birth: {self.date_of_birth}.'
+        return f'Sex: {self.bio_sex}, Date of birth: {self.date_of_birth}.'
